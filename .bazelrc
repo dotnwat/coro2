@@ -1,0 +1,12 @@
+build --action_env=BAZEL_COMPILER=clang
+build --action_env=CC=clang
+build --action_env=CXX=clang++
+build --cxxopt=-std=c++23 --host_cxxopt=-std=c++23
+build --keep_going
+
+build --compilation_mode=dbg
+build --copt -fsanitize=address,undefined,vptr,function,alignment
+build --linkopt -fsanitize=address,undefined,vptr,function,alignment
+build --linkopt -fsanitize-link-c++-runtime
+build --copt -O1
+build --copt -g
